@@ -2,7 +2,7 @@
   "name": "tf-js-hand-recog",
   "version": "1.0.0",
   "description": "Tensorflow.js React Hand Recognition",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "webpack serve",
     "build": "NODE_ENV='production' webpack",
