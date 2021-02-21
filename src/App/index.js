@@ -17,11 +17,10 @@ import * as handpose from "@tensorflow-models/handpose";
 // draws handpose in canvas
 import { drawHand } from "../utils";
 
-export default function App() {
-  let project_name = "Tensorflow.js React Hand Recognition";
+export default function App({project_name = "Tensorflow.js React Hand Recognition"}) {
 
   return (  
-    {project_name}
+    <h1>{project_name}</h1>
   )
 }
 
