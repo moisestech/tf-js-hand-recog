@@ -31,7 +31,7 @@ For additional info click [here]()
 ├── /                          #Home
 ```
 
-## 🌿 App tree
+## 🌿 App Tree
 
 ```bash
 ├── HOWTO.md
