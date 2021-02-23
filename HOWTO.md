@@ -2,15 +2,38 @@
 
 ## **1.** Install fingerpose npm install fingerpose
 
-## **2.** Add Use State
+- Install Tensorflow Model [Hand-Pose](https://www.npmjs.com/package/@tensorflow-models/handpose).
+- Full list of dependencies and devDependencies in [package.json]().
 
-## **3.** Import emojis and finger pose import * as fp from "fingerpose"
+## **2.** Import dependencies
 
-## **4.** Setup hook and emoji object
+- App/index.js
+  - `import * as bodypix` and `import * as tf`.
+  - `import {useRef} from 'react'`. [useRef link](https://reactjs.org/docs/hooks-reference.html#useref)
+    - help us reference our onscreen in DOM elements that keep state during the component lifecycle.
 
-## **5.** Update detect function for gesture handling
+## **3.** Setup webcam and canvas
 
-## **6.** Add emoji display to the screen
+- App/index.js in `<header />` DOM element.
+  - `<Webcam className="react-webcam"/>` return webcam component.
+  - `<Canvas className="react-canvas" />` return canvas component.
+
+## **4.** Define references to those
+
+- App/index.js in `App()` component body.
+  - connect canvas and webcam components with `useRef`.
+  - `const webcamRef = useRef(null);`
+  - `const camvasRef = useRef(null);`
+
+## **5.** Add Use State
+
+## **6.** Import emojis and finger pose import * as fp from "fingerpose"
+
+## **7.** Setup hook and emoji object
+
+## **8.** Update detect function for gesture handling
+
+## **9.** Add emoji display to the screen
 
 ---
 
