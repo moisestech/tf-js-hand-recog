@@ -10,6 +10,8 @@
 - [Canvas API](https://www.w3schools.com/tags/canvas_arc.asp)
 - [Tensorflow @2.8.5](https://www.tensorflow.org/js/models)
 - [Hand-Pose Model](https://www.npmjs.com/package/@tensorflow-models/handpose)
+- [Fingerpose](https://openbase.com/js/fingerpose/documentation)
+- [Custom Gestures](https://github.com/andypotato/fingerpose/tree/master/src/gestures)
 - [ES8](https://www.w3schools.com/js/js_2018.asp)
 - [PropTypes](https://www.npmjs.com/package/prop-types)
 
@@ -23,7 +25,7 @@ To start app: `npm start`
 
 ## 📚 HOW-TO
 
-For additional info click [here]()
+For additional info click [here](https://github.com/moisestech/tf-js-hand-recog)
 
 ## 🗺 URL Tree
 
