@@ -72,4 +72,5 @@ For additional info click [here](https://github.com/moisestech/tf-js-hand-recog)
 7. Add Babel Compilation
 
 ---
+
 [Moises Sanabria](https://www.moises.tech/)
