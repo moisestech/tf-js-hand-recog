@@ -5,28 +5,29 @@
 // 5. Update detect function for gesture handling
 // 6. Add emoji display to the screen
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from 'react';
 
 // access to webcam
-import Webcam from "react-webcam";
+import Webcam from 'react-webcam';
 
 // running handpose detection
-import * as tf from "@tensorflow/tfjs";
-import * as handpose from "@tensorflow-models/handpose";
+import * as tf from '@tensorflow/tfjs';
+import * as handpose from '@tensorflow-models/handpose';
 
 // draws handpose in canvas
-import { drawHand } from "../utils";
+import { drawHand } from '../utils';
 
 // infers custom gesture
-import {loveYouGesture} from "../utils/loveyou.js"; 
+import { loveYouGesture } from '../utils/loveyou.js';
 
 // port lib and assets for custom gesture
-import * as fp from "fingerpose";
-import victory from "./victory.png";
-import thumbs_up from "./thumbs_up.png";
+import * as fp from 'fingerpose';
+import victory from './victory.png';
+import thumbs_up from './thumbs_up.png';
 
-
-export default function App({project_name = "Tensorflow.js React Hand Recognition"}) {
+export default function App({
+  project_name = 'Tensorflow.js React Hand Recognition',
+}) {
   const webCamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -36,7 +37,7 @@ export default function App({project_name = "Tensorflow.js React Hand Recognitio
 
   const runHandpose = async () => {
     const net = await handpose.load();
-    console.log("Handpose model loaded.");
+    console.log('Handpose model loaded.');
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
@@ -46,7 +47,7 @@ export default function App({project_name = "Tensorflow.js React Hand Recognitio
   const detect = async (net) => {
     // Check data is available
     if (
-      typeof webcamRef.current !== "undefined" &&
+      typeof webcamRef.current !== 'undefined' &&
       webcamRef.current !== null &&
       webcamRef.current.video.readyState === 4
     ) {
@@ -73,7 +74,7 @@ export default function App({project_name = "Tensorflow.js React Hand Recognitio
         const GE = new fp.GestureEstimator([
           fp.Gestures.VictoryGesture,
           fp.Gestures.ThumbsUpGesture,
-          loveYouGesture
+          loveYouGesture,
         ]);
         const gesture = await GE.estimate(hand[0].landmarks, 4);
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
@@ -94,14 +95,16 @@ export default function App({project_name = "Tensorflow.js React Hand Recognitio
       ///////// NEW STUFF ADDED GESTURE HANDLING
 
       // Draw mesh
-      const ctx = canvasRef.current.getContext("2d");
+      const ctx = canvasRef.current.getContext('2d');
       drawHand(hand, ctx);
     }
   };
 
-  useEffect(()=>{runHandpose()},[]);
+  useEffect(() => {
+    runHandpose();
+  }, []);
 
-  return (  
+  return (
     <div clasName="App">
       <h1>{project_name}</h1>
       <header>
@@ -116,24 +119,24 @@ export default function App({project_name = "Tensorflow.js React Hand Recognitio
           <img
             src={images[emoji]}
             style={{
-              position: "absolute",
-              marginLeft: "auto",
-              marginRight: "auto",
+              position: 'absolute',
+              marginLeft: 'auto',
+              marginRight: 'auto',
               left: 400,
               bottom: 500,
               right: 0,
-              textAlign: "center",
+              textAlign: 'center',
               height: 100,
             }}
           />
         ) : (
-          ""
+          ''
         )}
 
         {/* NEW STUFF */}
       </header>
     </div>
-  )
+  );
 }
 
 // video: https://youtu.be/9MTiQMxTXPE?t=396
